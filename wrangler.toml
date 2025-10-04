@@ -1,0 +1,18 @@
+name = "cf_ai_cloudflare_agent_chat"
+main = "src/index.ts"
+compatibility_date = "2025-09-15"
+
+[durable_objects]
+bindings = [
+  { name = "MEMORY_DO", class_name = "MemoryDO" }
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["MemoryDO"]
+
+[ai]
+binding = "AI"
+
+[vars]
+AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8"
